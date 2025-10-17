@@ -1,0 +1,128 @@
+/* --- Base & Typography --- */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* --- Custom Properties --- */
+:root {
+    --accent-primary: #0ea5e9; /* sky-500 */
+    --accent-primary-hover: #0284c7; /* sky-600 */
+}
+html {
+    color-scheme: dark;
+}
+
+/* --- Base Styles --- */
+body { 
+    scroll-behavior: smooth; 
+}
+body[lang="ar"] { font-family: 'Cairo', 'Poppins', sans-serif; }
+body[lang="en"],
+body[lang="tr"],
+body[lang="fr"] { font-family: 'Poppins', 'Cairo', sans-serif; }
+
+
+/* --- Custom Scrollbar --- */
+::-webkit-scrollbar { 
+    width: 10px; 
+}
+::-webkit-scrollbar-track { 
+    background: transparent;
+}
+::-webkit-scrollbar-thumb { 
+    background-color: #3f3f46; /* zinc-700 */
+}
+::-webkit-scrollbar-thumb:hover { 
+    background-color: #52525b; /* zinc-600 */
+}
+
+
+/* --- Reusable Button Components --- */
+.btn {
+    @apply inline-block font-bold text-center px-6 py-3 rounded-lg transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-zinc-950 focus:ring-sky-500 transform;
+}
+
+.btn-primary {
+    @apply btn bg-sky-500 text-white hover:bg-sky-600 hover:shadow-lg hover:shadow-sky-500/20 active:scale-95;
+}
+.btn-secondary {
+    @apply btn bg-transparent text-sky-400 border-2 border-sky-500 hover:bg-sky-500/10 active:scale-95;
+}
+
+/* --- Section backgrounds --- */
+.section-bg-light, .section-bg-dark {
+    @apply bg-zinc-950;
+}
+.section-bg-alt {
+    @apply bg-zinc-900;
+}
+
+
+/* --- General Card Component --- */
+.content-card {
+    @apply bg-zinc-900 border border-zinc-800 rounded-xl;
+}
+.content-card-hover {
+    @apply transition-all duration-300 hover:border-zinc-700 hover:shadow-lg hover:shadow-black/10 hover:-translate-y-1;
+}
+
+
+/* --- Process Timeline --- */
+.process-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 24px;
+    height: 100%;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--accent-primary), #27272a /* zinc-800 */);
+}
+
+@media (min-width: 768px) {
+    .process-timeline::before {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+/* --- Prose for blog articles --- */
+.prose-invert {
+    --tw-prose-body: #a1a1aa;
+    --tw-prose-headings: #fafafa;
+    --tw-prose-links: #38bdf8;
+    --tw-prose-bold: #fafafa;
+    --tw-prose-bullets: #38bdf8;
+    --tw-prose-quotes: #fafafa;
+    --tw-prose-quote-borders: #38bdf8;
+}
+
+/* --- Removed Special Effects for a cleaner look --- */
+.text-glow,
+.text-glow-blue,
+.border-glow,
+.glassmorphism,
+.blob-background::before,
+.blob-background::after,
+.aurora-button,
+.aurora-button::before,
+.text-gradient-animated {
+    text-shadow: none;
+    background-image: none;
+    animation: none;
+    border: none;
+    filter: none;
+}
+
+.glassmorphism {
+    @apply bg-zinc-900/80 backdrop-blur-xl border border-zinc-800;
+}
+
+.input-glow:focus,
+.input-glow:focus-within {
+    box-shadow: 0 0 0 1px var(--accent-primary);
+    border-color: var(--accent-primary);
+}
+
+.text-gradient {
+    @apply bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent;
+}

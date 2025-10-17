@@ -1,0 +1,17 @@
+{
+  "short_name": "Allam Print",
+  "name": "Allam Apparel Printing",
+  "description": "High-quality screen printing and DTF services for brands, companies, and individuals.",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#09090b",
+  "background_color": "#09090b"
+}
